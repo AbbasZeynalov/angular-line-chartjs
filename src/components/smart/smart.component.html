@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <div style="text-align:center">
+    <h1>
+      {{ title }}
+    </h1>
+  </div>
+
+  <label class="categories-label">Categories: </label>
+  <select [(ngModel)]="simpleValue" (ngModelChange)="onChange($event)" class="categories-select">
+    <option *ngFor="let company of companies; let i = index" [value]="company.id" [selected]="i == 1">
+      {{company.name}}
+    </option>
+  </select>
+
+  <canvas id="lineChart"></canvas>
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <b class="total-month-balance">Month Balance: {{ monthBalance }}</b>
+    </div>
+    <div class="col-md-6 text-right">
+      <b class="total-balance">Balance: {{ balance }}</b>
+    </div>
+  </div>
+
+</div>
+
+
+<router-outlet></router-outlet>
+
+
