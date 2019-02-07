@@ -11,19 +11,25 @@ import { DumpService } from '../../services/dump.service';
 })
 export class SmartComponent implements OnInit {
 
-  title: string = 'Companies';
+  title: string;
   companies: Company[];
   LineChart: object;
-  chartData: number[] = [];
-  chartLabels: string[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-  monthBalance: number = 0;
-  balance: number = 0;
+  chartData: number[];
+  chartLabels: string[];
+  monthBalance: number;
+  balance: number;
   onChange(id: number) {
     this.updateCampanyDetails(id);
     this.updateLineChart(this.chartData);
   }
 
-  constructor(private Dump: DumpService) { }
+  constructor(private Dump: DumpService) {
+    this.title = 'Companies';
+    this.balance = 0;
+    this.monthBalance = 0;
+    this.chartData = [];
+    this.chartLabels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  }
 
   ngOnInit() {
 

@@ -11,10 +11,13 @@ import { InitialCompany, Company } from '../model/Company';
 
 export class DumpService {
 
-  private Url = 'https://gist.githubusercontent.com/Ali925/f11d6ed501ee057d40ec6ade3dd6e2a0/raw/6022f2b3c8c4edf0740639815e163fbd1600a9b5/companies.json';
-  ArrCompanies: Company[] = [];
+  Url: string;
+  ArrCompanies: Company[];
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient ) {
+    this.Url = 'https://gist.githubusercontent.com/Ali925/f11d6ed501ee057d40ec6ade3dd6e2a0/raw/6022f2b3c8c4edf0740639815e163fbd1600a9b5/companies.json';
+    this.ArrCompanies = [];
+  }
 
   public getHeroes(): Observable<object> {
 
